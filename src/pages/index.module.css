@@ -4,6 +4,9 @@
  */
 
 .heroBanner {
+  background-image: url("../../static/img/bfg-hero.png");
+  background-size: cover;
+  background-position: bottom;
   padding: 4rem 0;
   text-align: center;
   position: relative;

@@ -4,53 +4,53 @@ import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  link: string;
   description: JSX.Element;
+  color: string;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Developer User Guide',
+    link: 'docs/static/dev_welcome.html',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        THE SINGLE SOURCE OF TRUTH FOR OUR GAME DEVELOPERS AND PARTNERS.
       </>
     ),
+    color: '#003d6e',
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Producer Handbook',
+    link: 'docs/static/prod_welcome.html',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        EVERYTHING BIG FISH INTERNAL PRODUCERS NEED TO KNOW ABOUT SUPPORTING A GAME.
       </>
     ),
+    color: '#034e87',    
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'BFG SDK Reference',
+    link: 'docs/static/dev_welcome.html',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        DIVE INTO OUR SDK REFERENCE FOR MORE INFORMATION AND VIEW OUR RESOURCES.
       </>
     ),
+    color: '#119bd4',
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, link, description, color}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
+    <div className={clsx('col col--4')} style={{backgroundColor: color}}>
+      <a href={link}>
+        <div className="text--center padding-horiz--md">
+          <Heading as="h3">{title}</Heading>
+          <p>{description}</p>
+        </div>
+      </a>
     </div>
   );
 }
